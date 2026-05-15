@@ -1,6 +1,6 @@
-<!-- slug: clr_checklist_general -->
+<!-- slug: review_checklist_general -->
 
-# CLR Checklist — General (Moodle)
+# Review Checklist — General (Moodle)
 
 > **Status:** Stub. Fill in from Moodle dev docs + personal CLR notes.
 

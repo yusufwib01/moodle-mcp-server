@@ -65,16 +65,16 @@ Restart Claude Code. The server appears under `moodle-context`.
 | `get_db_schema` | parse the `install.xml` table definition |
 | `get_api_usage_examples` | 3–5 real usages of a Moodle API |
 | `get_bug_context` | file preview + function list + Jira orchestrator hint |
-| `get_clr_checklist` | review checklist (general/db/security/accessibility) |
+| `get_review_checklist` | Moodle review checklist (general/db/security/accessibility) — covers peer review and integration/CLR review |
 | `check_deprecation_usage` | scan a file for known-deprecated APIs (requires `data/deprecated.json`) |
 | `get_component_owner` | owner metadata (requires `data/components.json`) |
 | `find_similar_implementations` | cross-codebase pattern search |
-| `get_clr_context` | bundle checklist + Jira-fetch instruction |
+| `get_review_context` | bundle review checklist + Jira-fetch instruction |
 
 ## Resources
 
 - `moodle://guidelines/coding-style`
-- `moodle://guidelines/clr-checklist`
+- `moodle://guidelines/review-checklist`
 - `moodle://guidelines/deprecation`
 
 ## Development

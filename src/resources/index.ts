@@ -31,10 +31,10 @@ export const allResources: ResourceDefinition[] = [
     "coding_style.md",
   ),
   mdResource(
-    "moodle://guidelines/clr-checklist",
-    "Moodle CLR checklist",
-    "General CLR (Component Lead Review) checklist.",
-    "clr_checklist_general.md",
+    "moodle://guidelines/review-checklist",
+    "Moodle review checklist",
+    "General Moodle review checklist (covers peer review and integration/CLR review).",
+    "review_checklist_general.md",
   ),
   mdResource(
     "moodle://guidelines/deprecation",

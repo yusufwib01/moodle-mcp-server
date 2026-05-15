@@ -1,6 +1,6 @@
-<!-- slug: clr_checklist_accessibility -->
+<!-- slug: review_checklist_accessibility -->
 
-# CLR Checklist — Accessibility (Moodle)
+# Review Checklist — Accessibility (Moodle)
 
 > **Status:** Stub. Fill in from Moodle dev docs + personal CLR notes.
 

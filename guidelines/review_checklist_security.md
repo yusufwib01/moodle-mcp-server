@@ -1,6 +1,6 @@
-<!-- slug: clr_checklist_security -->
+<!-- slug: review_checklist_security -->
 
-# CLR Checklist — Security (Moodle)
+# Review Checklist — Security (Moodle)
 
 > **Status:** Stub. Fill in from Moodle dev docs + personal CLR notes.
 

@@ -1,6 +1,6 @@
-<!-- slug: clr_checklist_db -->
+<!-- slug: review_checklist_db -->
 
-# CLR Checklist — DB (Moodle)
+# Review Checklist — DB (Moodle)
 
 > **Status:** Stub. Fill in from Moodle dev docs + personal CLR notes.
 

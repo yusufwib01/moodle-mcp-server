@@ -13,11 +13,11 @@ import { findSimilarFeature } from "./feature/findSimilarFeature.js";
 import { getDbSchema } from "./feature/getDbSchema.js";
 import { getApiUsageExamples } from "./feature/getApiUsageExamples.js";
 import { getBugContext } from "./feature/getBugContext.js";
-import { getClrChecklist } from "./clr/getClrChecklist.js";
+import { getReviewChecklist } from "./clr/getReviewChecklist.js";
 import { checkDeprecationUsage } from "./clr/checkDeprecationUsage.js";
 import { getComponentOwner } from "./clr/getComponentOwner.js";
 import { findSimilarImplementations } from "./clr/findSimilarImplementations.js";
-import { getClrContext } from "./jira/getClrContext.js";
+import { getReviewContext } from "./jira/getReviewContext.js";
 
 export const allTools: ToolDefinition[] = [
   searchMoodleCodebase,
@@ -34,9 +34,9 @@ export const allTools: ToolDefinition[] = [
   getDbSchema,
   getApiUsageExamples,
   getBugContext,
-  getClrChecklist,
+  getReviewChecklist,
   checkDeprecationUsage,
   getComponentOwner,
   findSimilarImplementations,
-  getClrContext,
+  getReviewContext,
 ];

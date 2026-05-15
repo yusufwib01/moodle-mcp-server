@@ -7,7 +7,7 @@ describe("resources", () => {
     expect(uris).toEqual(
       expect.arrayContaining([
         "moodle://guidelines/coding-style",
-        "moodle://guidelines/clr-checklist",
+        "moodle://guidelines/review-checklist",
         "moodle://guidelines/deprecation",
       ]),
     );
