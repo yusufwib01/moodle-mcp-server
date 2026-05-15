@@ -1,4 +1,6 @@
-import { spawn as nodeSpawn, type ChildProcessWithoutNullStreams } from "node:child_process";
+import { spawn as nodeSpawn } from "node:child_process";
+import type { ChildProcessByStdio } from "node:child_process";
+import type { Readable } from "node:stream";
 import { createInterface } from "node:readline";
 
 export class RipgrepError extends Error {
@@ -46,7 +48,7 @@ export async function runRipgrep(opts: RipgrepOptions): Promise<RipgrepMatch[]> 
   args.push(opts.pattern);
   args.push(".");
 
-  const proc = spawnFn("rg", args, { cwd: opts.root, stdio: ["ignore", "pipe", "pipe"] }) as ChildProcessWithoutNullStreams;
+  const proc = spawnFn("rg", args, { cwd: opts.root, stdio: ["ignore", "pipe", "pipe"] }) as unknown as ChildProcessByStdio<null, Readable, Readable>;
   const matches: RipgrepMatch[] = [];
   let stderr = "";
 
