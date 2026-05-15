@@ -73,6 +73,46 @@ function suggestChecklists(files: Array<{ path: string }>): string[] {
     if (f.path.includes("/db/") || f.path.endsWith("install.xml") || f.path.endsWith("upgrade.php")) set.add("db");
     if (f.path.includes("/classes/external/") || f.path.endsWith("access.php") || f.path.endsWith("services.php")) set.add("security");
     if (f.path.endsWith(".mustache") || f.path.includes("/templates/")) set.add("accessibility");
+    if (f.path.includes("/classes/privacy/") || f.path.endsWith("install.xml") || f.path.endsWith("upgrade.php")) set.add("privacy");
+    if (f.path.endsWith("services.php") || f.path.includes("/classes/external/") || f.path.endsWith(".mustache")) set.add("mobile");
+    if (f.path.includes("thirdparty") || f.path.includes("/vendor/")) set.add("third_party");
+    if (f.path.endsWith("upgrade.txt") || f.path.endsWith(".md")) set.add("documentation");
+  }
+  return [...set];
+}
+
+function suggestTrackerLabels(files: Array<{ path: string }>): string[] {
+  const set = new Set<string>();
+  for (const f of files) {
+    if (
+      f.path.endsWith(".mustache") ||
+      f.path.includes("/templates/") ||
+      f.path.includes("/amd/") ||
+      f.path.endsWith(".css") ||
+      f.path.endsWith(".scss")
+    ) {
+      set.add("ui_change");
+    }
+    if (
+      f.path.endsWith("services.php") ||
+      f.path.includes("/classes/external/") ||
+      f.path.endsWith(".mustache")
+    ) {
+      set.add("affects_mobileapp");
+    }
+    if (
+      f.path.endsWith("upgrade.txt") ||
+      f.path.endsWith("README.md") ||
+      f.path.endsWith("readme_moodle.txt")
+    ) {
+      set.add("docs_required");
+    }
+    if (f.path.includes("thirdparty") || f.path.includes("/vendor/")) {
+      set.add("third_party");
+    }
+    if (f.path.includes("/classes/privacy/")) {
+      set.add("privacy_implementation");
+    }
   }
   return [...set];
 }
@@ -86,10 +126,12 @@ export const analyzePatch: ToolDefinition<typeof inputSchema> = {
     const files = extractFiles(input.diff);
     const components = [...new Set(files.map((f) => resolveComponentFromPath(f.path)).filter((c): c is string => c !== null))];
     const suggestedChecklists = suggestChecklists(files);
+    const suggestedTrackerLabels = suggestTrackerLabels(files);
     return {
       files,
       components,
       suggestedChecklists,
+      suggestedTrackerLabels,
       summary: `${files.length} file(s) changed across ${components.length} component(s).`,
     };
   },

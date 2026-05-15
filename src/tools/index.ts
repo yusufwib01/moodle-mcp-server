@@ -16,11 +16,15 @@ import { getDbSchema } from "./feature/getDbSchema.js";
 import { getApiUsageExamples } from "./feature/getApiUsageExamples.js";
 import { getBugContext } from "./feature/getBugContext.js";
 import { analyzePatch } from "./feature/analyzePatch.js";
+import { getBackportTargets } from "./feature/getBackportTargets.js";
 import { getReviewChecklist } from "./clr/getReviewChecklist.js";
 import { checkDeprecationUsage } from "./clr/checkDeprecationUsage.js";
 import { getComponentOwner } from "./clr/getComponentOwner.js";
 import { findSimilarImplementations } from "./clr/findSimilarImplementations.js";
+import { checkPhpdocCompleteness } from "./clr/checkPhpdocCompleteness.js";
+import { checkPrivacyProvider } from "./clr/checkPrivacyProvider.js";
 import { getReviewContext } from "./jira/getReviewContext.js";
+import { getIntegrationWorkflowHelpers } from "./jira/getIntegrationWorkflowHelpers.js";
 
 export const allTools: ToolDefinition[] = [
   searchMoodleCodebase,
@@ -40,9 +44,13 @@ export const allTools: ToolDefinition[] = [
   getApiUsageExamples,
   getBugContext,
   analyzePatch,
+  getBackportTargets,
   getReviewChecklist,
   checkDeprecationUsage,
   getComponentOwner,
   findSimilarImplementations,
+  checkPhpdocCompleteness,
+  checkPrivacyProvider,
   getReviewContext,
+  getIntegrationWorkflowHelpers,
 ];

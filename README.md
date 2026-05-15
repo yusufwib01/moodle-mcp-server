@@ -67,12 +67,16 @@ Restart Claude Code. The server appears under `moodle-context`.
 | `get_db_schema` | parse the `install.xml` table definition |
 | `get_api_usage_examples` | 3–5 real usages of a Moodle API |
 | `get_bug_context` | file preview + function list + Jira orchestrator hint |
-| `analyze_patch` | parse unified diff, return affected files + components + suggested review checklists |
-| `get_review_checklist` | Moodle review checklist (general/db/security/accessibility) — covers peer review and integration/CLR review |
+| `analyze_patch` | parse unified diff, return affected files + components + suggested review checklists + suggested tracker labels |
+| `get_backport_targets` | recommend branches a fix should land on per Moodle's backport policy |
+| `get_review_checklist` | Moodle review checklist (general / db / security / accessibility / privacy / mobile / performance / documentation / git / third_party) — covers peer review and integration/CLR review |
 | `check_deprecation_usage` | scan a file for known-deprecated APIs (requires `data/deprecated.json`) |
 | `get_component_owner` | owner metadata (requires `data/components.json`) |
 | `find_similar_implementations` | cross-codebase pattern search |
+| `check_phpdoc_completeness` | list functions/methods missing a PHPDoc block in a file |
+| `check_privacy_provider` | verify a component's Privacy API provider matches its DB tables |
 | `get_review_context` | bundle review checklist + Jira-fetch instruction |
+| `get_integration_workflow_helpers` | references: CIBot, TOBIC, moodle-userscripts, integration git aliases |
 
 ## Resources
 

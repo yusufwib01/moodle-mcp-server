@@ -7,7 +7,18 @@ import type { ToolDefinition } from "../types.js";
 const here = dirname(fileURLToPath(import.meta.url));
 const guidelinesDir = join(here, "..", "..", "..", "guidelines");
 
-const TYPES = ["general", "db", "security", "accessibility"] as const;
+const TYPES = [
+  "general",
+  "db",
+  "security",
+  "accessibility",
+  "privacy",
+  "mobile",
+  "performance",
+  "documentation",
+  "git",
+  "third_party",
+] as const;
 
 const inputSchema = z.object({
   type: z.enum(TYPES).default("general"),

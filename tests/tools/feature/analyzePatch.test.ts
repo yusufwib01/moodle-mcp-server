@@ -54,4 +54,30 @@ describe("analyzePatch", () => {
   it("rejects empty diff via schema", () => {
     expect(() => analyzePatch.inputSchema.parse({ diff: "" })).toThrow();
   });
+
+  it("suggests tracker labels by file type", async () => {
+    const diff = `diff --git a/mod/quiz/templates/foo.mustache b/mod/quiz/templates/foo.mustache
+--- a/mod/quiz/templates/foo.mustache
++++ b/mod/quiz/templates/foo.mustache
+@@ -1 +1 @@
+-<div>old</div>
++<div>new</div>
+diff --git a/mod/quiz/db/services.php b/mod/quiz/db/services.php
+--- a/mod/quiz/db/services.php
++++ b/mod/quiz/db/services.php
+@@ -1 +1 @@
+-old
++new
+diff --git a/mod/quiz/upgrade.txt b/mod/quiz/upgrade.txt
+--- a/mod/quiz/upgrade.txt
++++ b/mod/quiz/upgrade.txt
+@@ -1 +1 @@
+-old
++new
+`;
+    const out = await analyzePatch.run({ diff });
+    expect(out.suggestedTrackerLabels).toEqual(
+      expect.arrayContaining(["ui_change", "affects_mobileapp", "docs_required"]),
+    );
+  });
 });
