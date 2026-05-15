@@ -13,6 +13,10 @@ import { findSimilarFeature } from "./feature/findSimilarFeature.js";
 import { getDbSchema } from "./feature/getDbSchema.js";
 import { getApiUsageExamples } from "./feature/getApiUsageExamples.js";
 import { getBugContext } from "./feature/getBugContext.js";
+import { getClrChecklist } from "./clr/getClrChecklist.js";
+import { checkDeprecationUsage } from "./clr/checkDeprecationUsage.js";
+import { getComponentOwner } from "./clr/getComponentOwner.js";
+import { findSimilarImplementations } from "./clr/findSimilarImplementations.js";
 
 export const allTools: ToolDefinition[] = [
   searchMoodleCodebase,
@@ -29,4 +33,8 @@ export const allTools: ToolDefinition[] = [
   getDbSchema,
   getApiUsageExamples,
   getBugContext,
+  getClrChecklist,
+  checkDeprecationUsage,
+  getComponentOwner,
+  findSimilarImplementations,
 ];
