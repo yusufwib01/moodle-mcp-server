@@ -6,6 +6,8 @@ import { searchFunctionDefinition } from "./codebase/searchFunctionDefinition.js
 import { traceCallPath } from "./codebase/traceCallPath.js";
 import { getHooks } from "./codebase/getHooks.js";
 import { getCodingGuidelines } from "./guidelines/getCodingGuidelines.js";
+import { getDeprecationRules } from "./guidelines/getDeprecationRules.js";
+import { getUpgradeNoteFormat } from "./guidelines/getUpgradeNoteFormat.js";
 
 export const allTools: ToolDefinition[] = [
   searchMoodleCodebase,
@@ -15,4 +17,6 @@ export const allTools: ToolDefinition[] = [
   traceCallPath,
   getHooks,
   getCodingGuidelines,
+  getDeprecationRules,
+  getUpgradeNoteFormat,
 ];
