@@ -17,6 +17,7 @@ import { getClrChecklist } from "./clr/getClrChecklist.js";
 import { checkDeprecationUsage } from "./clr/checkDeprecationUsage.js";
 import { getComponentOwner } from "./clr/getComponentOwner.js";
 import { findSimilarImplementations } from "./clr/findSimilarImplementations.js";
+import { getClrContext } from "./jira/getClrContext.js";
 
 export const allTools: ToolDefinition[] = [
   searchMoodleCodebase,
@@ -37,4 +38,5 @@ export const allTools: ToolDefinition[] = [
   checkDeprecationUsage,
   getComponentOwner,
   findSimilarImplementations,
+  getClrContext,
 ];
