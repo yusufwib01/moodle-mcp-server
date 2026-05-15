@@ -8,6 +8,9 @@ import { getHooks } from "./codebase/getHooks.js";
 import { getCodingGuidelines } from "./guidelines/getCodingGuidelines.js";
 import { getDeprecationRules } from "./guidelines/getDeprecationRules.js";
 import { getUpgradeNoteFormat } from "./guidelines/getUpgradeNoteFormat.js";
+import { getFeatureScaffold } from "./feature/getFeatureScaffold.js";
+import { findSimilarFeature } from "./feature/findSimilarFeature.js";
+import { getDbSchema } from "./feature/getDbSchema.js";
 
 export const allTools: ToolDefinition[] = [
   searchMoodleCodebase,
@@ -19,4 +22,7 @@ export const allTools: ToolDefinition[] = [
   getCodingGuidelines,
   getDeprecationRules,
   getUpgradeNoteFormat,
+  getFeatureScaffold,
+  findSimilarFeature,
+  getDbSchema,
 ];

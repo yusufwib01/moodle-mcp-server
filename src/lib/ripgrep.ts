@@ -44,8 +44,9 @@ export async function runRipgrep(opts: RipgrepOptions): Promise<RipgrepMatch[]> 
   if (opts.caseSensitive === false) args.push("--ignore-case");
   if (opts.extraArgs) args.push(...opts.extraArgs);
   args.push(opts.pattern);
+  args.push(".");
 
-  const proc = spawnFn("rg", args, { cwd: opts.root }) as ChildProcessWithoutNullStreams;
+  const proc = spawnFn("rg", args, { cwd: opts.root, stdio: ["ignore", "pipe", "pipe"] }) as ChildProcessWithoutNullStreams;
   const matches: RipgrepMatch[] = [];
   let stderr = "";
 
@@ -59,7 +60,7 @@ export async function runRipgrep(opts: RipgrepOptions): Promise<RipgrepMatch[]> 
       return;
     }
     if (event.type !== "match" || !event.data) return;
-    const file = event.data.path?.text ?? "";
+    const file = (event.data.path?.text ?? "").replace(/^\.\//, "");
     const lineNumber = event.data.line_number ?? 0;
     const text = (event.data.lines?.text ?? "").replace(/\n$/, "");
     matches.push({ file, line: lineNumber, snippet: text });
