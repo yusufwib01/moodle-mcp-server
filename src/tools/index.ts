@@ -11,6 +11,8 @@ import { getUpgradeNoteFormat } from "./guidelines/getUpgradeNoteFormat.js";
 import { getFeatureScaffold } from "./feature/getFeatureScaffold.js";
 import { findSimilarFeature } from "./feature/findSimilarFeature.js";
 import { getDbSchema } from "./feature/getDbSchema.js";
+import { getApiUsageExamples } from "./feature/getApiUsageExamples.js";
+import { getBugContext } from "./feature/getBugContext.js";
 
 export const allTools: ToolDefinition[] = [
   searchMoodleCodebase,
@@ -25,4 +27,6 @@ export const allTools: ToolDefinition[] = [
   getFeatureScaffold,
   findSimilarFeature,
   getDbSchema,
+  getApiUsageExamples,
+  getBugContext,
 ];
