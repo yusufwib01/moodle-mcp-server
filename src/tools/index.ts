@@ -4,6 +4,7 @@ import { readMoodleFile } from "./codebase/readMoodleFile.js";
 import { listComponentFiles } from "./codebase/listComponentFiles.js";
 import { searchFunctionDefinition } from "./codebase/searchFunctionDefinition.js";
 import { traceCallPath } from "./codebase/traceCallPath.js";
+import { getHooks } from "./codebase/getHooks.js";
 
 export const allTools: ToolDefinition[] = [
   searchMoodleCodebase,
@@ -11,4 +12,5 @@ export const allTools: ToolDefinition[] = [
   listComponentFiles,
   searchFunctionDefinition,
   traceCallPath,
+  getHooks,
 ];
