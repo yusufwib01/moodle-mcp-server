@@ -5,6 +5,8 @@ import { listComponentFiles } from "./codebase/listComponentFiles.js";
 import { searchFunctionDefinition } from "./codebase/searchFunctionDefinition.js";
 import { traceCallPath } from "./codebase/traceCallPath.js";
 import { getHooks } from "./codebase/getHooks.js";
+import { findCapability } from "./codebase/findCapability.js";
+import { findLangString } from "./codebase/findLangString.js";
 import { getCodingGuidelines } from "./guidelines/getCodingGuidelines.js";
 import { getDeprecationRules } from "./guidelines/getDeprecationRules.js";
 import { getUpgradeNoteFormat } from "./guidelines/getUpgradeNoteFormat.js";
@@ -13,6 +15,7 @@ import { findSimilarFeature } from "./feature/findSimilarFeature.js";
 import { getDbSchema } from "./feature/getDbSchema.js";
 import { getApiUsageExamples } from "./feature/getApiUsageExamples.js";
 import { getBugContext } from "./feature/getBugContext.js";
+import { analyzePatch } from "./feature/analyzePatch.js";
 import { getReviewChecklist } from "./clr/getReviewChecklist.js";
 import { checkDeprecationUsage } from "./clr/checkDeprecationUsage.js";
 import { getComponentOwner } from "./clr/getComponentOwner.js";
@@ -26,6 +29,8 @@ export const allTools: ToolDefinition[] = [
   searchFunctionDefinition,
   traceCallPath,
   getHooks,
+  findCapability,
+  findLangString,
   getCodingGuidelines,
   getDeprecationRules,
   getUpgradeNoteFormat,
@@ -34,6 +39,7 @@ export const allTools: ToolDefinition[] = [
   getDbSchema,
   getApiUsageExamples,
   getBugContext,
+  analyzePatch,
   getReviewChecklist,
   checkDeprecationUsage,
   getComponentOwner,

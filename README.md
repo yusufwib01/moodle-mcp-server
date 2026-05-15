@@ -57,6 +57,8 @@ Restart Claude Code. The server appears under `moodle-context`.
 | `search_function_definition` | locate PHP function definitions by name |
 | `trace_call_path` | definitions + callers for a function |
 | `get_hooks` | hook callbacks from `db/hooks.php` / `db/callbacks.php` |
+| `find_capability` | locate Moodle capability declarations across `db/access.php` |
+| `find_lang_string` | locate `$string['key']` definitions across `lang/en/*.php` |
 | `get_coding_guidelines` | local guideline notes by topic |
 | `get_deprecation_rules` | Moodle deprecation conventions |
 | `get_upgrade_note_format` | format for `upgrade.txt` entries |
@@ -65,6 +67,7 @@ Restart Claude Code. The server appears under `moodle-context`.
 | `get_db_schema` | parse the `install.xml` table definition |
 | `get_api_usage_examples` | 3–5 real usages of a Moodle API |
 | `get_bug_context` | file preview + function list + Jira orchestrator hint |
+| `analyze_patch` | parse unified diff, return affected files + components + suggested review checklists |
 | `get_review_checklist` | Moodle review checklist (general/db/security/accessibility) — covers peer review and integration/CLR review |
 | `check_deprecation_usage` | scan a file for known-deprecated APIs (requires `data/deprecated.json`) |
 | `get_component_owner` | owner metadata (requires `data/components.json`) |
