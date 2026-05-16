@@ -122,14 +122,32 @@ Review workflow for **$ARGUMENTS** — covers peer review **and** integration re
 For each public function the patch modifies:
 - `<function>` — <count> callers across <list of components>. Risk: <low|medium|high>.
 
-## Recommendation
+## Verdict
 
-**Approve / Request changes / Needs work** — <2-3 sentences>
+Decide each gate from the checklist results above. A "Fail" on any blocker-severity finding closes the gate.
+
+| Gate | Result | Reasoning |
+|------|--------|-----------|
+| Peer review (passes to Integration review) | **PASS** / **FAIL** | <1-2 sentences citing the checklist rows that drove the decision> |
+| Integration review (passes to Push) | **PASS** / **FAIL** / **N/A — peer review failed** | <1-2 sentences> |
+
+**Next round:** <Integration review / Push / Back to developer / Needs reviewer follow-up>
+
+**Recommendation:** **Approve / Request changes / Needs work** — <2-3 sentences>
+
+### Gate rules
+
+- **Peer review PASS** requires: zero blockers AND zero majors in the peer review (17 categories) section.
+- **Integration review PASS** requires: peer review PASS AND zero blockers in the integration additions section AND backport targets match policy.
+- Any blocker → automatic FAIL for that gate. Majors → FAIL unless explicitly justified inline.
+- Minor + nit findings do not block either gate; they go on the "Recommendation" line as follow-ups.
 ```
 
 10. After writing the file, **print to chat**:
     - Path to the report.
     - A 5-line TL;DR.
-    - The "Recommendation" line.
+    - The **verdict table** (Peer review gate, Integration review gate) with PASS / FAIL per row.
+    - The **Next round** line (Integration review / Push / Back to developer / Needs reviewer follow-up).
+    - The **Recommendation** line.
 
 Reminder before finishing: confirm to the human "review only — no Jira comments posted, no code edited".
