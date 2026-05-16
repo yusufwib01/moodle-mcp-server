@@ -99,6 +99,10 @@ npm test             # vitest run
 npm run test:watch   # vitest watch
 ```
 
+## Usage
+
+- Detailed workflow recipes + per-tool reference: [`docs/USAGE.md`](docs/USAGE.md)
+
 ## Design + plan
 
 - Spec: `docs/superpowers/specs/2026-05-16-moodle-mcp-server-design.md`
