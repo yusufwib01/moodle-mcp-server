@@ -5,3 +5,9 @@ dist/
 coverage/
 *.log
 .DS_Store
+
+# Claude Code per-machine state
+.claude/settings.local.json
+
+# Per-user review output (mdl-review writes here)
+reviews/
