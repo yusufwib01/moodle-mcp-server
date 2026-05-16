@@ -134,6 +134,7 @@ npm run test:watch   # vitest watch
 ## Usage
 
 - Detailed workflow recipes + per-tool reference: [`docs/USAGE.md`](docs/USAGE.md)
+- Team onboarding checklist (clone → install → smoke test): [`docs/TEAM_ONBOARDING.md`](docs/TEAM_ONBOARDING.md)
 
 ## Design + plan
 
