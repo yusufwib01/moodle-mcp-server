@@ -13,6 +13,23 @@ Review workflow for **$ARGUMENTS** — covers peer review **and** integration re
 
 ## Steps
 
+0. **Verify the patch is pulled into the current Moodle worktree before reviewing.**
+   - Resolve the worktree path: use the `root` arg if provided, otherwise the `MOODLE_ROOT` env var, otherwise the current working directory if it looks like a Moodle tree (`config-dist.php` + `version.php` at the root).
+   - Run `git -C <worktree> log --oneline --all --grep "$ARGUMENTS" -n 5` to look for commits referencing the MDL issue.
+   - Also run `git -C <worktree> branch --list "*$ARGUMENTS*"` to look for a matching branch (e.g. `MDL-XXXXX_main`, `MDL-XXXXX_502`).
+   - **If neither returns anything**, stop and tell the human:
+     ```
+     The patch for $ARGUMENTS is not present in <worktree>.
+
+     Pull it with the Moodle Development Kit:
+
+         mdk pull $ARGUMENTS -t
+
+     Then re-run /mdl-review $ARGUMENTS.
+     ```
+     Do not proceed with the review until the human confirms the patch is pulled.
+   - If a branch / commit exists, record the branch name and the latest commit SHA — they go into the report so the reviewer knows which revision was reviewed.
+
 1. Pull the issue from the Atlassian MCP (read only). Capture:
    - Summary, description.
    - Reporter, assignee.
@@ -46,7 +63,10 @@ Review workflow for **$ARGUMENTS** — covers peer review **and** integration re
 **Date:** YYYY-MM-DD
 **Components:** <list>
 **Affects version:** <list>
-**Patch:** <link / sha / branch name>
+**Worktree:** <absolute path>
+**Branch reviewed:** <branch name>
+**Commit reviewed:** <sha>
+**Patch source:** <Jira attachment URL / linked PR>
 
 ## TL;DR
 
