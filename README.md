@@ -18,7 +18,20 @@ cd moodle-mcp-server
 
 The script installs deps, builds, then runs `claude mcp add` for you under user scope. Restart Claude Code afterwards. Verify with `claude mcp list`.
 
-Re-run any time you bump the code or want to point the server at a different `MOODLE_ROOT` — the script is idempotent (removes the existing registration first).
+Re-run any time you bump the code or want to point the server at a different `MOODLE_ROOT` — the script is idempotent (removes the existing registration first). It also copies the four `mdl-*` slash commands into `~/.claude/commands/`.
+
+## Slash commands
+
+| Command | Purpose |
+|---------|---------|
+| `/mdl-triage MDL-XXXXX` | Triage an issue — classify, draft a reply (never posts) |
+| `/mdl-bugfix MDL-XXXXX` | Analyze + fix a bug, regression-reason, commit |
+| `/mdl-newfeature MDL-XXXXX` | Brainstorm + spec + plan + implement a new feature (Figma-aware) |
+| `/mdl-review MDL-XXXXX` | Peer + integration review; writes `./reviews/<MDL-num>.md` |
+
+All four chain this MCP with the Atlassian (Jira) MCP. **Hard rule: READ Jira only, never POST/PUT.** No tests are executed; regression analysis is LLM-only.
+
+For free-form aliases (`triage: MDL-12345`, etc.), append the block from `commands/CLAUDE_MD_SNIPPET.md` to `~/.claude/CLAUDE.md`.
 
 ## Multiple Moodle worktrees
 

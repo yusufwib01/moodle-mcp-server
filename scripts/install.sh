@@ -64,5 +64,26 @@ claude mcp add "$SERVER_NAME" \
   -e "MOODLE_ROOT=$ROOT_OVERRIDE" \
   -- node "$DIST_ENTRY"
 
+# 5. Install slash commands
+COMMANDS_SRC="${PROJECT_ROOT}/commands"
+COMMANDS_DEST="${HOME}/.claude/commands"
+mkdir -p "$COMMANDS_DEST"
+for f in "$COMMANDS_SRC"/mdl-*.md; do
+  [[ -f "$f" ]] || continue
+  cp "$f" "$COMMANDS_DEST/"
+  log "installed $(basename "$f") -> $COMMANDS_DEST/"
+done
+
+# 6. CLAUDE.md alias hint
+GLOBAL_CLAUDE_MD="${HOME}/.claude/CLAUDE.md"
+if ! grep -q "Moodle MDL workflows" "$GLOBAL_CLAUDE_MD" 2>/dev/null; then
+  log ""
+  log "to enable free-form prompts like 'triage: MDL-12345', append the block in"
+  log "  $COMMANDS_SRC/CLAUDE_MD_SNIPPET.md"
+  log "to $GLOBAL_CLAUDE_MD"
+  log ""
+fi
+
 log "done. restart Claude Code to pick up the new registration."
 log "verify with: claude mcp list"
+log "available slash commands: /mdl-triage /mdl-bugfix /mdl-newfeature /mdl-review"
