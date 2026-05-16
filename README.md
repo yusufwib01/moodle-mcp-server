@@ -68,16 +68,16 @@ claude mcp add moodle-context \
 
 Remove with `claude mcp remove moodle-context`. List with `claude mcp list`.
 
-## Configure (env file)
+## Environment variables
 
-`.env.example` documents the env vars the server reads at startup:
+The server reads these at startup:
 
-```
-MOODLE_ROOT=/Users/yusufwibisono/moodles/stable_main/moodle
-# MOODLE_MCP_RG_TIMEOUT_MS=10000
-```
+| Variable | Required | Default | Purpose |
+|----------|----------|---------|---------|
+| `MOODLE_ROOT` | yes | — | Absolute path to the default Moodle worktree (the `<…>/moodle` dir, not the wrapper dir). |
+| `MOODLE_MCP_RG_TIMEOUT_MS` | no | `10000` | ripgrep wall-clock timeout in milliseconds. |
 
-The server only reads its env. The `claude mcp add ... -e` flag is what actually injects values when Claude Code spawns the process.
+Values reach the server via `claude mcp add ... -e KEY=value` (writes into `~/.claude.json`) or the `env` block in project-scope `.mcp.json`. There is no `.env` autoload.
 
 ## Tools
 
