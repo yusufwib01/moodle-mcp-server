@@ -17,6 +17,7 @@ import { getApiUsageExamples } from "./feature/getApiUsageExamples.js";
 import { getBugContext } from "./feature/getBugContext.js";
 import { analyzePatch } from "./feature/analyzePatch.js";
 import { getBackportTargets } from "./feature/getBackportTargets.js";
+import { getMoodleReleases } from "./feature/getMoodleReleases.js";
 import { getReviewChecklist } from "./clr/getReviewChecklist.js";
 import { checkDeprecationUsage } from "./clr/checkDeprecationUsage.js";
 import { getComponentOwner } from "./clr/getComponentOwner.js";
@@ -45,6 +46,7 @@ export const allTools: ToolDefinition[] = [
   getBugContext,
   analyzePatch,
   getBackportTargets,
+  getMoodleReleases,
   getReviewChecklist,
   checkDeprecationUsage,
   getComponentOwner,
