@@ -49,7 +49,7 @@ These markdown blobs are mounted as MCP resources. Claude can pull them without 
 
 ## Conventions
 
-- **`root`** — every codebase tool accepts an optional `root` argument. Default is `MOODLE_ROOT` from the env. Pass it when you need to query a different worktree (e.g. `~/moodles/stable_502`) without restarting the server.
+- **`root`** — every codebase tool accepts an optional `root` argument. Default is `MOODLE_ROOT` from the env. Pass it when you need to query a different worktree (e.g. `~/moodles/stable_502/moodle`) without restarting the server. The Moodle source tree lives under `<worktree>/moodle/`, never the worktree root.
 - **Pagination** — every list-returning tool accepts `offset` and `limit`. Defaults: file reads 500 lines, search results 20 hits. Truncated results include a `hint` line telling Claude the exact next-call params.
 - **Schema-validated input** — bad inputs fail fast with a Zod error. Tool descriptions ship as JSON Schema so Claude's autocomplete sees the constraints.
 - **Path safety** — `read_moodle_file` and similar refuse any path that escapes `MOODLE_ROOT` (including symlinks).
@@ -480,7 +480,9 @@ One-line descriptions for the cheat sheet.
 
 ### Pick the right `root`
 
-You have many Moodle worktrees (stable_main, stable_502, MDL-* branches). The default `MOODLE_ROOT` env var sets the global default; pass `root: "/abs/path/to/stable_502"` to any tool to query a different worktree without restarting the server. **Register the server once** — do not register a separate instance per worktree.
+You have many Moodle worktrees (stable_main, stable_502, MDL-* branches). The default `MOODLE_ROOT` env var sets the global default; pass `root: "/abs/path/to/stable_502/moodle"` to any tool to query a different worktree without restarting the server. **Register the server once** — do not register a separate instance per worktree.
+
+Worktree layout reminder: the Moodle source lives at `<worktree>/moodle/`, not at the worktree root. Always include the `/moodle` suffix in `MOODLE_ROOT` and any `root` override.
 
 ### Installing on a fresh machine
 

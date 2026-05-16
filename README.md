@@ -38,9 +38,9 @@ For free-form aliases (`triage: MDL-12345`, etc.), append the block from `comman
 Register **once**. Tools accept an optional `root` argument per call, so the same server serves every worktree on this machine. Pass an absolute path:
 
 ```
-Read mod/quiz/lib.php under /Users/me/moodles/stable_502
+Read mod/quiz/lib.php under /Users/me/moodles/stable_502/moodle
 → Claude calls read_moodle_file(filePath="mod/quiz/lib.php",
-                                root="/Users/me/moodles/stable_502")
+                                root="/Users/me/moodles/stable_502/moodle")
 ```
 
 `MOODLE_ROOT` is just the default when no `root` is supplied.
@@ -50,7 +50,7 @@ Read mod/quiz/lib.php under /Users/me/moodles/stable_502
 The repo ships a `.mcp.json` at the root. When you open this directory in Claude Code, it offers to load the `moodle-context` server in project scope. Set `MOODLE_ROOT` in your shell env first — `.mcp.json` reads it via `${MOODLE_ROOT}` expansion.
 
 ```bash
-export MOODLE_ROOT=/Users/yusufwibisono/moodles/stable_main
+export MOODLE_ROOT=/Users/yusufwibisono/moodles/stable_main/moodle
 ```
 
 Project scope is great for trying the repo on a new machine without touching user config.
@@ -73,7 +73,7 @@ Remove with `claude mcp remove moodle-context`. List with `claude mcp list`.
 `.env.example` documents the env vars the server reads at startup:
 
 ```
-MOODLE_ROOT=/Users/yusufwibisono/moodles/stable_main
+MOODLE_ROOT=/Users/yusufwibisono/moodles/stable_main/moodle
 # MOODLE_MCP_RG_TIMEOUT_MS=10000
 ```
 
