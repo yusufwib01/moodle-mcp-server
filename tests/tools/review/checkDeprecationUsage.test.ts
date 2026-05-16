@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { mkdtemp, mkdir, writeFile, rm, realpath } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { checkDeprecationUsage, setDeprecatedJsonPathForTests } from "../../../src/tools/clr/checkDeprecationUsage.js";
+import { checkDeprecationUsage, setDeprecatedJsonPathForTests } from "../../../src/tools/review/checkDeprecationUsage.js";
 
 describe("checkDeprecationUsage", () => {
   const originalRoot = process.env.MOODLE_ROOT;

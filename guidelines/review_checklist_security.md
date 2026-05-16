@@ -2,7 +2,7 @@
 
 # Review Checklist — Security (Moodle)
 
-> **Status:** Stub. Fill in from Moodle dev docs + personal CLR notes.
+> **Status:** Stub. Fill in from Moodle dev docs + personal review notes.
 
 ## Capability + access checks
 

@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { mkdtemp, mkdir, writeFile, rm, realpath } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { checkPrivacyProvider } from "../../../src/tools/clr/checkPrivacyProvider.js";
+import { checkPrivacyProvider } from "../../../src/tools/review/checkPrivacyProvider.js";
 
 describe("checkPrivacyProvider", () => {
   const originalRoot = process.env.MOODLE_ROOT;

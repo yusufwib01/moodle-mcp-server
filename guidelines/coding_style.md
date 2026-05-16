@@ -2,7 +2,7 @@
 
 # Coding Style Guidelines (Moodle)
 
-> **Status:** Stub. The canonical content lives in the Moodle dev docs; this is a quick pointer + per-CLR notes.
+> **Status:** Stub. The canonical content lives in the Moodle dev docs; this is a quick pointer + per-review notes.
 
 ## Key rules
 
@@ -19,4 +19,4 @@
 ## References
 
 - Canonical: https://moodledev.io/general/development/policies/codingstyle
-- TODO: capture exceptions Moodle CLR enforces beyond the canonical doc.
+- TODO: capture exceptions Moodle integration review enforces beyond the canonical doc.

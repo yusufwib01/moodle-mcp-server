@@ -2,7 +2,7 @@
 
 # Upgrade Notes Guidelines (Moodle)
 
-> **Status:** Stub. Fill in from Moodle dev docs + personal CLR notes.
+> **Status:** Stub. Fill in from Moodle dev docs + personal review notes.
 
 ## Key rules
 

@@ -2,7 +2,7 @@
 
 # Review Checklist — General (Moodle)
 
-Covers both peer review and integration/CLR review. Based on https://moodledev.io/general/development/process/peer-review (17 categories) plus CLR-specific items from https://moodledev.io/general/development/process/integration/clr.
+Covers both peer review and integration review. Based on https://moodledev.io/general/development/process/peer-review (17 categories) plus integration-phase items from https://moodledev.io/general/development/process/integration/clr.
 
 For deep dives, also load the topic-specific checklists: `db`, `security`, `accessibility`, `privacy`, `mobile`, `performance`, `documentation`, `git`, `third_party`.
 
@@ -133,10 +133,10 @@ See `review_checklist_git.md` for full list.
 - Component maintainer involved if change is in their area.
 - Version number bumped if behaviour/schema changed.
 
-## CLR-specific additions
+## Integration review additions
 
 - **Target branch validation** — patch lands on the branches Moodle's backport policy requires. Use `get_backport_targets` to confirm.
 - **Backwards compatibility** — public APIs preserved; breaking changes justified in `upgrade.txt`.
 - **In-situ review** — verify the patch behaves correctly when combined with other already-integrated changes (cross-issue impact).
-- **Workflow state** — confirm the issue is in the CLR queue (`Waiting for CLR` → `CLR in progress` → `Waiting for Push`).
+- **Workflow state** — confirm the issue is in the integration queue (`Waiting for review` → `Review in progress` → `Waiting for Push`).
 - **Maintainer assignment** — component matches; correct maintainer in CC.

@@ -1,6 +1,6 @@
 # moodle-mcp-server
 
-MCP server that gives Claude Code persistent context about the Moodle codebase, coding conventions, and CLR review workflows.
+MCP server that gives Claude Code persistent context about the Moodle codebase, coding conventions, and review workflows (peer review + integration review).
 
 ## Requirements
 
@@ -70,7 +70,7 @@ Restart Claude Code. The server appears under `moodle-context`.
 | `analyze_patch` | parse unified diff, return affected files + components + suggested review checklists + suggested tracker labels |
 | `get_backport_targets` | recommend branches a fix should land on per Moodle's backport policy (security + accessibility hit all supported stables; bug fixes follow the general-support window) |
 | `get_moodle_releases` | current Moodle release support matrix sourced from moodledev.io/general/releases |
-| `get_review_checklist` | Moodle review checklist (general / db / security / accessibility / privacy / mobile / performance / documentation / git / third_party) — covers peer review and integration/CLR review |
+| `get_review_checklist` | Moodle review checklist (general / db / security / accessibility / privacy / mobile / performance / documentation / git / third_party) — covers peer review and integration review |
 | `check_deprecation_usage` | scan a file for known-deprecated APIs (requires `data/deprecated.json`) |
 | `get_component_owner` | owner metadata (requires `data/components.json`) |
 | `find_similar_implementations` | cross-codebase pattern search |

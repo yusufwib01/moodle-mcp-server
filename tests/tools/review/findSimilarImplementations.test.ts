@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { findSimilarImplementations } from "../../../src/tools/clr/findSimilarImplementations.js";
+import { findSimilarImplementations } from "../../../src/tools/review/findSimilarImplementations.js";
 
 vi.mock("../../../src/lib/ripgrep.js", () => ({
   runRipgrep: vi.fn(async () => [

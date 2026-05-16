@@ -27,7 +27,7 @@ const inputSchema = z.object({
 export const getReviewChecklist: ToolDefinition<typeof inputSchema> = {
   name: "get_review_checklist",
   description:
-    "Return a Moodle review checklist (general, db, security, accessibility). Applies to peer review and integration/CLR review alike.",
+    "Return a Moodle review checklist (general, db, security, accessibility). Applies to peer review and integration review alike.",
   inputSchema,
   async run(input) {
     const file = join(guidelinesDir, `review_checklist_${input.type}.md`);

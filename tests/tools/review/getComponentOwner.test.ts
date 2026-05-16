@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { mkdtemp, writeFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { getComponentOwner, setComponentsJsonPathForTests } from "../../../src/tools/clr/getComponentOwner.js";
+import { getComponentOwner, setComponentsJsonPathForTests } from "../../../src/tools/review/getComponentOwner.js";
 
 describe("getComponentOwner", () => {
   let dir: string;

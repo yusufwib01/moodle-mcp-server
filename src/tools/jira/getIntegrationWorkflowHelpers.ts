@@ -13,7 +13,7 @@ export const getIntegrationWorkflowHelpers: ToolDefinition<typeof inputSchema> =
       docs: {
         peerReview: "https://moodledev.io/general/development/process/peer-review",
         integration: "https://moodledev.io/general/development/process/integration",
-        clr: "https://moodledev.io/general/development/process/integration/clr",
+        integrationComponentLeadReview: "https://moodledev.io/general/development/process/integration/clr",
       },
       tools: [
         {
@@ -54,7 +54,7 @@ export const getIntegrationWorkflowHelpers: ToolDefinition<typeof inputSchema> =
       ],
       timeline: {
         normal:
-          "Mon–Thu integration window; Friday is testing wrap-up. Integration merges what passed CI + CLR by EOD Thursday.",
+          "Mon–Thu integration window; Friday is testing wrap-up. Integration merges what passed CI + integration review by EOD Thursday.",
         continuousIntegration:
           "Continuous integration / freeze periods prioritise issues that unblock QA or release.",
         onSync:

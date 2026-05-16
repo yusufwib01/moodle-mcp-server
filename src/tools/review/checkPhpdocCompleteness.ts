@@ -35,7 +35,7 @@ function detectKind(line: string): "function" | "method" {
 export const checkPhpdocCompleteness: ToolDefinition<typeof inputSchema> = {
   name: "check_phpdoc_completeness",
   description:
-    "Scan a PHP file and list every function/method that does not have a preceding PHPDoc block. Useful for peer review and CLR documentation checks.",
+    "Scan a PHP file and list every function/method that does not have a preceding PHPDoc block. Useful for peer review and integration review documentation checks.",
   inputSchema,
   async run(input) {
     const root = resolveCallRoot(input.root);

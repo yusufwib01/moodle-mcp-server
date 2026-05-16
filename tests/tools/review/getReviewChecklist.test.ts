@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getReviewChecklist } from "../../../src/tools/clr/getReviewChecklist.js";
+import { getReviewChecklist } from "../../../src/tools/review/getReviewChecklist.js";
 
 describe("getReviewChecklist", () => {
   it("returns the general checklist when requested", async () => {

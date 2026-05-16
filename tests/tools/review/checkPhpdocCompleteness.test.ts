@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { mkdtemp, mkdir, writeFile, rm, realpath } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { checkPhpdocCompleteness } from "../../../src/tools/clr/checkPhpdocCompleteness.js";
+import { checkPhpdocCompleteness } from "../../../src/tools/review/checkPhpdocCompleteness.js";
 
 describe("checkPhpdocCompleteness", () => {
   const originalRoot = process.env.MOODLE_ROOT;

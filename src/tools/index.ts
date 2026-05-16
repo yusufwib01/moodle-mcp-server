@@ -18,12 +18,12 @@ import { getBugContext } from "./feature/getBugContext.js";
 import { analyzePatch } from "./feature/analyzePatch.js";
 import { getBackportTargets } from "./feature/getBackportTargets.js";
 import { getMoodleReleases } from "./feature/getMoodleReleases.js";
-import { getReviewChecklist } from "./clr/getReviewChecklist.js";
-import { checkDeprecationUsage } from "./clr/checkDeprecationUsage.js";
-import { getComponentOwner } from "./clr/getComponentOwner.js";
-import { findSimilarImplementations } from "./clr/findSimilarImplementations.js";
-import { checkPhpdocCompleteness } from "./clr/checkPhpdocCompleteness.js";
-import { checkPrivacyProvider } from "./clr/checkPrivacyProvider.js";
+import { getReviewChecklist } from "./review/getReviewChecklist.js";
+import { checkDeprecationUsage } from "./review/checkDeprecationUsage.js";
+import { getComponentOwner } from "./review/getComponentOwner.js";
+import { findSimilarImplementations } from "./review/findSimilarImplementations.js";
+import { checkPhpdocCompleteness } from "./review/checkPhpdocCompleteness.js";
+import { checkPrivacyProvider } from "./review/checkPrivacyProvider.js";
 import { getReviewContext } from "./jira/getReviewContext.js";
 import { getIntegrationWorkflowHelpers } from "./jira/getIntegrationWorkflowHelpers.js";
 

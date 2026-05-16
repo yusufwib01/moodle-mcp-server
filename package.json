@@ -1,7 +1,7 @@
 {
   "name": "moodle-mcp-server",
   "version": "0.1.0",
-  "description": "MCP server exposing Moodle codebase, guidelines, and CLR context to Claude Code",
+  "description": "MCP server exposing Moodle codebase, guidelines, and review context (peer review + integration review) to Claude Code",
   "type": "module",
   "bin": {
     "moodle-mcp-server": "dist/index.js"

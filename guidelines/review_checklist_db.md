@@ -2,7 +2,7 @@
 
 # Review Checklist — DB (Moodle)
 
-> **Status:** Stub. Fill in from Moodle dev docs + personal CLR notes.
+> **Status:** Stub. Fill in from Moodle dev docs + personal review notes.
 
 ## Schema
 

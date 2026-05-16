@@ -33,7 +33,7 @@ export const allResources: ResourceDefinition[] = [
   mdResource(
     "moodle://guidelines/review-checklist",
     "Moodle review checklist",
-    "General Moodle review checklist (covers peer review and integration/CLR review).",
+    "General Moodle review checklist (covers peer review and integration review).",
     "review_checklist_general.md",
   ),
   mdResource(
