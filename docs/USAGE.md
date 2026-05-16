@@ -480,7 +480,17 @@ One-line descriptions for the cheat sheet.
 
 ### Pick the right `root`
 
-You have many Moodle worktrees (stable_main, stable_502, MDL-* branches). The default `MOODLE_ROOT` env var sets the global default; pass `root: "/abs/path/to/stable_502"` to any tool to query a different worktree without restarting the server.
+You have many Moodle worktrees (stable_main, stable_502, MDL-* branches). The default `MOODLE_ROOT` env var sets the global default; pass `root: "/abs/path/to/stable_502"` to any tool to query a different worktree without restarting the server. **Register the server once** — do not register a separate instance per worktree.
+
+### Installing on a fresh machine
+
+```bash
+git clone <repo> moodle-mcp-server
+cd moodle-mcp-server
+./scripts/install.sh /path/to/moodle
+```
+
+That script builds + runs `claude mcp add` for you. Or open the cloned dir in Claude Code with `MOODLE_ROOT` exported — the bundled `.mcp.json` registers the server in project scope automatically.
 
 ### Pagination
 

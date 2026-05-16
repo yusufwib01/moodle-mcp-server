@@ -8,44 +8,63 @@ MCP server that gives Claude Code persistent context about the Moodle codebase, 
 - ripgrep (`rg`) on PATH (`brew install ripgrep` on macOS)
 - A local Moodle clone
 
-## Install
+## Install + register (quick path)
 
 ```bash
 git clone <this-repo> moodle-mcp-server
 cd moodle-mcp-server
-npm install
-npm run build
+./scripts/install.sh /path/to/your/moodle
 ```
 
-## Configure
+The script installs deps, builds, then runs `claude mcp add` for you under user scope. Restart Claude Code afterwards. Verify with `claude mcp list`.
 
-Copy `.env.example` to `.env` and set:
+Re-run any time you bump the code or want to point the server at a different `MOODLE_ROOT` — the script is idempotent (removes the existing registration first).
+
+## Multiple Moodle worktrees
+
+Register **once**. Tools accept an optional `root` argument per call, so the same server serves every worktree on this machine. Pass an absolute path:
+
+```
+Read mod/quiz/lib.php under /Users/me/moodles/stable_502
+→ Claude calls read_moodle_file(filePath="mod/quiz/lib.php",
+                                root="/Users/me/moodles/stable_502")
+```
+
+`MOODLE_ROOT` is just the default when no `root` is supplied.
+
+## Project-scope auto-registration
+
+The repo ships a `.mcp.json` at the root. When you open this directory in Claude Code, it offers to load the `moodle-context` server in project scope. Set `MOODLE_ROOT` in your shell env first — `.mcp.json` reads it via `${MOODLE_ROOT}` expansion.
+
+```bash
+export MOODLE_ROOT=/Users/yusufwibisono/moodles/stable_main
+```
+
+Project scope is great for trying the repo on a new machine without touching user config.
+
+## Manual registration (low-level)
+
+If you prefer running the CLI yourself:
+
+```bash
+claude mcp add moodle-context \
+  --scope user \
+  -e MOODLE_ROOT=/path/to/your/moodle \
+  -- node "$(pwd)/dist/index.js"
+```
+
+Remove with `claude mcp remove moodle-context`. List with `claude mcp list`.
+
+## Configure (env file)
+
+`.env.example` documents the env vars the server reads at startup:
 
 ```
 MOODLE_ROOT=/Users/yusufwibisono/moodles/stable_main
+# MOODLE_MCP_RG_TIMEOUT_MS=10000
 ```
 
-Override per call by passing `root` as an argument to any tool.
-
-## Register with Claude Code
-
-Add to `~/.claude/claude.json`:
-
-```json
-{
-  "mcpServers": {
-    "moodle-context": {
-      "command": "node",
-      "args": ["/Users/yusufwibisono/moodles/mcp/dist/index.js"],
-      "env": {
-        "MOODLE_ROOT": "/Users/yusufwibisono/moodles/stable_main"
-      }
-    }
-  }
-}
-```
-
-Restart Claude Code. The server appears under `moodle-context`.
+The server only reads its env. The `claude mcp add ... -e` flag is what actually injects values when Claude Code spawns the process.
 
 ## Tools
 

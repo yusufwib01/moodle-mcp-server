@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "moodle-context": {
+      "command": "node",
+      "args": ["./dist/index.js"],
+      "env": {
+        "MOODLE_ROOT": "${MOODLE_ROOT}"
+      }
+    }
+  }
+}
