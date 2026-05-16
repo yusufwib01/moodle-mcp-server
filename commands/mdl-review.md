@@ -13,10 +13,11 @@ Review workflow for **$ARGUMENTS** — covers peer review **and** integration re
 
 ## Steps
 
-0. **Verify the patch is pulled into the current Moodle worktree before reviewing.**
+0. **Verify the patch is checked out in the current Moodle worktree before reviewing.**
+   - Purpose: confirm the local checkout actually contains the code you're about to review. This is **not** the backport coverage check — that comes from Jira fields in step 7.
    - Resolve the worktree path: use the `root` arg if provided, otherwise the `MOODLE_ROOT` env var, otherwise the current working directory if it looks like a Moodle tree (`config-dist.php` + `version.php` at the root).
    - Run `git -C <worktree> log --oneline --all --grep "$ARGUMENTS" -n 5` to look for commits referencing the MDL issue.
-   - Also run `git -C <worktree> branch --list "*$ARGUMENTS*"` to look for a matching branch (e.g. `MDL-XXXXX_main`, `MDL-XXXXX_502`).
+   - Also run `git -C <worktree> branch --list "*$ARGUMENTS*"` to see whether a matching branch was checked out locally.
    - **If neither returns anything**, stop and tell the human:
      ```
      The patch for $ARGUMENTS is not present in <worktree>.
@@ -28,7 +29,8 @@ Review workflow for **$ARGUMENTS** — covers peer review **and** integration re
      Then re-run /mdl-review $ARGUMENTS.
      ```
      Do not proceed with the review until the human confirms the patch is pulled.
-   - If a branch / commit exists, record the branch name and the latest commit SHA — they go into the report so the reviewer knows which revision was reviewed.
+   - If a branch / commit exists locally, record the branch name and the latest commit SHA — they go into the report header so the reviewer knows which revision was reviewed.
+   - Local branches present here have **no bearing on backport coverage**. The set of branches the developer actually shipped lives in the Jira `Pull <branch>` fields and is verified in step 7.
 
 1. Pull the issue from the Atlassian MCP (read only). Capture:
    - Summary, description.
@@ -52,7 +54,13 @@ Review workflow for **$ARGUMENTS** — covers peer review **and** integration re
 6. **Map findings to checklist items** for both phases:
    - Peer review (the 17 categories).
    - Integration review additions (target branch, backwards compat, in-situ impact, workflow state, maintainer).
-7. **Verify backport targets** with `get_backport_targets` using the issue type. Compare against the branch list the patch actually covers. Flag any missing branch.
+7. **Verify backport targets** with `get_backport_targets` using the issue type. **Source of truth = Jira tracker fields**, not the local git repo. Pull the per-branch fields the integrators set on every MDL ticket:
+   - `Pull from Repository` / `Pull Main Repository` (master/main branch URL).
+   - `Pull Master Branch` (typically `MDL-XXXXX_main` or `MDL-XXXXX_master`).
+   - Per-stable fields, e.g. `Pull 502 Branch`, `Pull 501 Branch`, `Pull 500 Branch`, `Pull 405 Branch`.
+   - `Pull Master Diff URL` and per-stable diff URLs.
+   The set of populated per-stable branch fields is the actual backport coverage. Do **not** infer coverage from `git branch --list` on the local worktree — local checkout state is independent of what the developer published on the tracker.
+   Compare the populated tracker branches against `get_backport_targets` output. Flag any required branch missing from the tracker, and call out any extra branch the policy did not request.
 8. **Trace risk paths** with `trace_call_path` for every public function the patch modifies — list the callers in the report.
 9. **Write the report** to `./reviews/<MDL-num>.md`:
 
@@ -108,10 +116,13 @@ Review workflow for **$ARGUMENTS** — covers peer review **and** integration re
 
 ## Backport target verification
 
+Source: Jira tracker fields (`Pull <branch>` fields). Local git repo state is informational only.
+
 - Issue type: <bug / regression / security / accessibility / improvement / new_feature>
 - Targets per policy: <list from get_backport_targets>
-- Branches in patch: <list>
-- Missing: <list or "none">
+- Branches published on tracker: <list of branches whose `Pull <branch>` field is populated>
+- Missing required branches: <list or "none">
+- Extra branches beyond policy: <list or "none">
 
 ## Suggested tracker labels
 
