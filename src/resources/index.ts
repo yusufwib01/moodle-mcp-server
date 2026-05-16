@@ -42,6 +42,12 @@ export const allResources: ResourceDefinition[] = [
     "Deprecation handling conventions.",
     "deprecation.md",
   ),
+  mdResource(
+    "moodle://guidelines/triage-checklist",
+    "Moodle triage checklist",
+    "11-question screening flow plus required confirmation fields for tracker triage.",
+    "triage_checklist.md",
+  ),
 ];
 
 export function listResources(resources: ResourceDefinition[]) {

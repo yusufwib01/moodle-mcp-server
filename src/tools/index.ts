@@ -26,6 +26,10 @@ import { checkPhpdocCompleteness } from "./review/checkPhpdocCompleteness.js";
 import { checkPrivacyProvider } from "./review/checkPrivacyProvider.js";
 import { getReviewContext } from "./jira/getReviewContext.js";
 import { getIntegrationWorkflowHelpers } from "./jira/getIntegrationWorkflowHelpers.js";
+import { getTriageChecklist } from "./triage/getTriageChecklist.js";
+import { getTriageCannedResponse } from "./triage/getTriageCannedResponse.js";
+import { suggestTriageOutcome } from "./triage/suggestTriageOutcome.js";
+import { getTriageContext } from "./triage/getTriageContext.js";
 
 export const allTools: ToolDefinition[] = [
   searchMoodleCodebase,
@@ -55,4 +59,8 @@ export const allTools: ToolDefinition[] = [
   checkPrivacyProvider,
   getReviewContext,
   getIntegrationWorkflowHelpers,
+  getTriageChecklist,
+  getTriageCannedResponse,
+  suggestTriageOutcome,
+  getTriageContext,
 ];

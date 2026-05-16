@@ -78,12 +78,17 @@ Restart Claude Code. The server appears under `moodle-context`.
 | `check_privacy_provider` | verify a component's Privacy API provider matches its DB tables |
 | `get_review_context` | bundle review checklist + Jira-fetch instruction |
 | `get_integration_workflow_helpers` | references: CIBot, TOBIC, moodle-userscripts, integration git aliases |
+| `get_triage_checklist` | Moodle issue triage checklist (11-question screening flow, required fields, outcomes) |
+| `get_triage_canned_response` | reusable tracker reply templates (support_request, duplicate, contributed_plugin, unsupported_version, en_fix, translation_request, already_possible, triaged_bug, triaged_improvement, triaged_security, need_more_info, administrator_contact) |
+| `suggest_triage_outcome` | heuristic classifier for an issue description — suggests outcome + canned response |
+| `get_triage_context` | bundle triage checklist + Jira-fetch instruction for an MDL issue |
 
 ## Resources
 
 - `moodle://guidelines/coding-style`
 - `moodle://guidelines/review-checklist`
 - `moodle://guidelines/deprecation`
+- `moodle://guidelines/triage-checklist`
 
 ## Development
 
