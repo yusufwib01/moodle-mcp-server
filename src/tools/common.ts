@@ -12,8 +12,6 @@ export const paginationSchema = z.object({
   limit: z.number().int().positive().optional(),
 });
 
-export type PaginationInput = z.infer<typeof paginationSchema>;
-
 export function resolveCallRoot(override: string | undefined): string {
   return resolveRoot(override);
 }

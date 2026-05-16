@@ -20,9 +20,7 @@ export interface RipgrepOptions {
   pattern: string;
   root: string;
   glob?: string;
-  caseSensitive?: boolean;
   fixedStrings?: boolean;
-  extraArgs?: string[];
   timeoutMs?: number;
   spawn?: typeof nodeSpawn;
 }
@@ -43,8 +41,6 @@ export async function runRipgrep(opts: RipgrepOptions): Promise<RipgrepMatch[]> 
   const args: string[] = ["--json"];
   if (opts.glob) args.push("--glob", opts.glob);
   if (opts.fixedStrings) args.push("--fixed-strings");
-  if (opts.caseSensitive === false) args.push("--ignore-case");
-  if (opts.extraArgs) args.push(...opts.extraArgs);
   args.push(opts.pattern);
   args.push(".");
 

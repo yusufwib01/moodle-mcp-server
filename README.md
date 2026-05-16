@@ -58,17 +58,6 @@ claude mcp add moodle-context \
 
 Remove with `claude mcp remove moodle-context`. List with `claude mcp list`.
 
-## Environment variables
-
-The server reads these at startup:
-
-| Variable | Required | Default | Purpose |
-|----------|----------|---------|---------|
-| `MOODLE_ROOT` | yes | — | Absolute path to the default Moodle worktree (the `<…>/moodle` dir, not the wrapper dir). |
-| `MOODLE_MCP_RG_TIMEOUT_MS` | no | `10000` | ripgrep wall-clock timeout in milliseconds. |
-
-Values reach the server via `claude mcp add ... -e KEY=value` (writes into `~/.claude.json`) or the `env` block in project-scope `.mcp.json`. There is no `.env` autoload.
-
 ## Tools
 
 | Tool | Purpose |
@@ -125,8 +114,3 @@ npm run test:watch   # vitest watch
 
 - Detailed workflow recipes + per-tool reference: [`docs/USAGE.md`](docs/USAGE.md)
 - Team onboarding checklist (clone → install → smoke test): [`docs/TEAM_ONBOARDING.md`](docs/TEAM_ONBOARDING.md)
-
-## Design + plan
-
-- Spec: `docs/superpowers/specs/2026-05-16-moodle-mcp-server-design.md`
-- Implementation plan: `docs/superpowers/plans/2026-05-16-moodle-mcp-server.md`
