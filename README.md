@@ -45,16 +45,6 @@ Read mod/quiz/lib.php under /Users/me/moodles/stable_502/moodle
 
 `MOODLE_ROOT` is just the default when no `root` is supplied.
 
-## Project-scope auto-registration
-
-The repo ships a `.mcp.json` at the root. When you open this directory in Claude Code, it offers to load the `moodle-context` server in project scope. Set `MOODLE_ROOT` in your shell env first — `.mcp.json` reads it via `${MOODLE_ROOT}` expansion.
-
-```bash
-export MOODLE_ROOT=/Users/yusufwibisono/moodles/stable_main/moodle
-```
-
-Project scope is great for trying the repo on a new machine without touching user config.
-
 ## Manual registration (low-level)
 
 If you prefer running the CLI yourself:
