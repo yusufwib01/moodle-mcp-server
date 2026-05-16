@@ -52,11 +52,10 @@ if [[ ! -f "$DIST_ENTRY" ]]; then
   exit 1
 fi
 
-# 4. Re-register (idempotent)
-if claude mcp list 2>/dev/null | grep -q "^${SERVER_NAME}[[:space:]]"; then
-  log "removing existing $SERVER_NAME registration"
-  claude mcp remove "$SERVER_NAME" --scope user >/dev/null 2>&1 || true
-fi
+# 4. Re-register (idempotent — remove any existing, then add)
+log "removing any existing $SERVER_NAME registration (ignored if absent)"
+claude mcp remove "$SERVER_NAME" --scope user >/dev/null 2>&1 || true
+claude mcp remove "$SERVER_NAME" >/dev/null 2>&1 || true
 
 log "registering $SERVER_NAME with Claude Code (user scope)"
 claude mcp add "$SERVER_NAME" \
